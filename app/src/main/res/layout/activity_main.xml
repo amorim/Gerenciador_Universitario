@@ -24,22 +24,39 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="Faltas"
-        android:id="@+id/faltas"
-        android:layout_alignTop="@+id/notas"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar\nMatérias"
+        android:id="@+id/addMat"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="Notas"
-        android:id="@+id/notas"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faltas"
+        android:id="@+id/faltas"
+        android:layout_alignBottom="@+id/addMat"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notas"
+        android:id="@+id/notas"
+        android:layout_alignBottom="@+id/addMat"
+        android:layout_alignRight="@+id/rl_layout"
+        android:layout_alignEnd="@+id/rl_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rl_layout"></RelativeLayout>
+
 </RelativeLayout>
 
 
