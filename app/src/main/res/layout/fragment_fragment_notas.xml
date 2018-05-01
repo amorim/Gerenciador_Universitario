@@ -1,0 +1,57 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projectp4.studio.com.gerenciador_universitario.Frags"
+    android:background="#8988d0">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Notas"
+            android:id="@+id/bt"
+            android:layout_alignBaseline="@+id/button2"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignStart="@+id/textView8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="GERENCIE SUAS NOTAS AQUI"
+            android:id="@+id/textView8"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_above="@+id/bt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Notas"
+            android:id="@+id/button2"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/textView8"
+            android:layout_alignEnd="@+id/textView8"
+            android:layout_marginTop="200dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ranking de Prioridades"
+            android:id="@+id/button4"
+            android:layout_marginTop="38dp"
+            android:layout_below="@+id/bt"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</FrameLayout>
