@@ -1,61 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="projectp4.studio.com.gerenciador_universitario.MainActivity">
+    tools:context="projectp4.studio.com.gerenciador_universitario.MainActivity"
+    android:background="#00a6ff"
+    android:id="@+id/fundo">
 
-    <!--
-    <FrameLayout android:id="@+id/frame_content"
+
+    <android.support.v4.view.ViewPager android:id="@+id/vp_pagina"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@+id/stl_tabs"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <projectp4.studio.com.gerenciador_universitario.helper.SlidingTabLayout
+        android:id="@+id/stl_tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behaviour="@string/appbar_scrolling_view_behaviour" /> -->
-
-    <ImageView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@color/colorPrimary">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar\nMatérias"
-        android:id="@+id/addMat"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Faltas"
-        android:id="@+id/faltas"
-        android:layout_alignBottom="@+id/addMat"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notas"
-        android:id="@+id/notas"
-        android:layout_alignBottom="@+id/addMat"
-        android:layout_alignRight="@+id/rl_layout"
-        android:layout_alignEnd="@+id/rl_layout" />
+    </projectp4.studio.com.gerenciador_universitario.helper.SlidingTabLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/rl_layout"></RelativeLayout>
+        android:id="@+id/relativeLayout">
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Matérias"
+        android:id="@+id/addMat"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/relativeLayout"
+        android:layout_toEndOf="@+id/relativeLayout"
+        android:background="#ffffff"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>
 

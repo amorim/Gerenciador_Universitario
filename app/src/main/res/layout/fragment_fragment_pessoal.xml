@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="projectp4.studio.com.gerenciador_universitario.Frags"
-    android:background="#007db6">
+    android:background="#8988d0">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -16,32 +16,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="GERENCIE SUAS FALTAS AQUI"
+            android:text="ABA PESSOAL"
             android:id="@+id/textView8"
-            android:layout_marginTop="61dp"
+            android:layout_marginTop="105dp"
             android:textStyle="bold"
             android:textSize="25dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
-        <Button
-            android:layout_width="160dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicionar Faltas"
-            android:id="@+id/addFaltas"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="FOTO?"
+            android:id="@+id/textView9"
+            android:layout_marginTop="47dp"
             android:layout_below="@+id/textView8"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8"
-            android:layout_marginTop="44dp" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="SItuação Atual"
-            android:id="@+id/situAtual"
-            android:layout_alignTop="@+id/addFaltas"
-            android:layout_alignRight="@+id/textView8"
-            android:layout_alignEnd="@+id/textView8" />
+            android:layout_toLeftOf="@+id/textView8"
+            android:layout_toStartOf="@+id/textView8" />
 
     </RelativeLayout>
 </FrameLayout>

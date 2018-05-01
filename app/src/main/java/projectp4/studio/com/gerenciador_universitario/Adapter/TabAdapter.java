@@ -5,16 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import projectp4.studio.com.gerenciador_universitario.FragmentConfig;
 import projectp4.studio.com.gerenciador_universitario.FragmentFaltas;
 import projectp4.studio.com.gerenciador_universitario.FragmentNotas;
-import projectp4.studio.com.gerenciador_universitario.FragmentTeste;
-import projectp4.studio.com.gerenciador_universitario.Frags;
 
 /**
  * Created by Lucas on 01/05/2018.
  */
 public class TabAdapter extends FragmentStatePagerAdapter {
-    private String[] tituloAbas ={"NOTAS", "FALTAS"};
+    private String[] tituloAbas ={"NOTAS", "FALTAS", "CONFIG."};
 
     public TabAdapter(FragmentManager fm) {
         super(fm);
@@ -26,8 +25,10 @@ public class TabAdapter extends FragmentStatePagerAdapter {
 
         if(position == 0){
             f = new FragmentNotas();
-        }else{
+        }else if(position == 1){
             f = new FragmentFaltas();
+        }else{
+            f = new FragmentConfig();
         }
 
         return f;

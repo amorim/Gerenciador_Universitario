@@ -14,9 +14,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <data android:scheme="projectp4.studio.com.gerenciador_universitario"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
         </activity>
         <activity android:name=".MainFaltas" />
         <activity android:name=".MainNotas" />
+        <activity android:name=".AddMat" />
+        <activity
+            android:name=".Teste"
+            android:label="@string/title_activity_teste"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Ranking" />
+        <activity android:name=".AddNotas" />
+        <activity android:name=".VerNotas" />
+        <activity android:name=".AddFaltas" />
+        <activity android:name=".SituAtual"></activity>
     </application>
 
 </manifest>

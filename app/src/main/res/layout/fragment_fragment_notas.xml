@@ -3,24 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="projectp4.studio.com.gerenciador_universitario.Frags"
-    android:background="#8988d0">
+    android:background="#007db6">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2" >
 
     <!-- TODO: Update blank fragment layout -->
+
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="left|bottom">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Ver Notas"
-            android:id="@+id/bt"
-            android:layout_alignBaseline="@+id/button2"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8" />
+            android:id="@+id/verNotas"
+            android:layout_below="@+id/textView8"
+            android:layout_alignRight="@+id/textView8"
+            android:layout_alignEnd="@+id/textView8"
+            android:layout_marginTop="57dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,28 +38,28 @@
             android:id="@+id/textView8"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:layout_above="@+id/bt"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp" />
+            android:layout_marginTop="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Adicionar Notas"
-            android:id="@+id/button2"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/textView8"
-            android:layout_alignEnd="@+id/textView8"
-            android:layout_marginTop="200dp" />
+            android:id="@+id/AddNotas"
+            android:layout_alignTop="@+id/verNotas"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignStart="@+id/textView8" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ranking de Prioridades"
-            android:id="@+id/button4"
-            android:layout_marginTop="38dp"
-            android:layout_below="@+id/bt"
+            android:id="@+id/ranking"
+            android:layout_marginTop="32dp"
+            android:layout_below="@+id/verNotas"
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </FrameLayout>
+

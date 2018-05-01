@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projectp4.studio.com.gerenciador_universitario.Frags"
+    android:background="#8988d0">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|bottom"
+        android:background="#007db6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="BEM-VINDO!"
+            android:id="@+id/textView8"
+            android:textStyle="bold"
+            android:textSize="60dp"
+            android:layout_marginTop="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Seja bem-vindo ao Gerenciador Universitário! Aqui, você poderá gerenciar alguns detalhes de sua vida universitária, sendo eles as suas notas e sua frequência de faltas, de forma a sempre se manter informado de sua situação acadêmica e proto para se prevenir contra a reprovação, esperamos que tenha uma boa experiência ao utilizar este app, aproveite!"
+            android:id="@+id/textView11"
+            android:autoText="true"
+            android:textColor="#ffffff"
+            android:layout_alignTop="@+id/textView8"
+            android:layout_marginTop="96dp"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignStart="@+id/textView8"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Arraste para utilzar"
+            android:id="@+id/textView12"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/textView11"
+            android:layout_alignStart="@+id/textView11"
+            android:layout_marginBottom="56dp" />
+
+    </RelativeLayout>
+</FrameLayout>
