@@ -19,9 +19,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="CONFIGURAÇÕES"
             android:id="@+id/textView8"
-            android:layout_marginTop="69dp"
             android:textStyle="bold"
             android:textSize="25dp"
+            android:layout_marginTop="64dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
@@ -44,15 +44,15 @@
             android:text="Compartilhar"
             android:id="@+id/share"
             android:layout_marginTop="58dp"
-            android:layout_below="@+id/checkBox3"
-            android:layout_alignLeft="@+id/checkBox3"
-            android:layout_alignStart="@+id/checkBox3" />
+            android:layout_below="@+id/cbLembrete"
+            android:layout_alignLeft="@+id/cbLembrete"
+            android:layout_alignStart="@+id/cbLembrete" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nível de Faltas"
-            android:id="@+id/checkBox"
+            android:id="@+id/cbNvlF"
             android:layout_below="@+id/textView10"
             android:layout_alignLeft="@+id/textView10"
             android:layout_alignStart="@+id/textView10"
@@ -62,20 +62,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Conceito Alterado"
-            android:id="@+id/checkBox2"
-            android:layout_below="@+id/checkBox"
-            android:layout_alignLeft="@+id/checkBox"
-            android:layout_alignStart="@+id/checkBox"
+            android:id="@+id/cbConceito"
+            android:layout_below="@+id/cbNvlF"
+            android:layout_alignLeft="@+id/cbNvlF"
+            android:layout_alignStart="@+id/cbNvlF"
             android:checked="false" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lembrete"
-            android:id="@+id/checkBox3"
-            android:layout_below="@+id/checkBox2"
-            android:layout_alignLeft="@+id/checkBox2"
-            android:layout_alignStart="@+id/checkBox2"
+            android:id="@+id/cbLembrete"
+            android:layout_below="@+id/cbConceito"
+            android:layout_alignLeft="@+id/cbConceito"
+            android:layout_alignStart="@+id/cbConceito"
             android:checked="false" />
 
     </RelativeLayout>

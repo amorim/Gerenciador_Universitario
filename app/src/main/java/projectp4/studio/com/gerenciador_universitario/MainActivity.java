@@ -1,6 +1,7 @@
 package projectp4.studio.com.gerenciador_universitario;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -19,7 +20,6 @@ import projectp4.studio.com.gerenciador_universitario.helper.SlidingTabLayout;
 public class MainActivity extends AppCompatActivity {
 
     private Button addMat;
-
     private SlidingTabLayout sltbl;
     private ViewPager vp;
 
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         addMat = (Button) findViewById(R.id.addMat);
         sltbl = (SlidingTabLayout) findViewById(R.id.stl_tabs);

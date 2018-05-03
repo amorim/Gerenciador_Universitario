@@ -20,13 +20,7 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainFaltas" />
-        <activity android:name=".MainNotas" />
         <activity android:name=".AddMat" />
-        <activity
-            android:name=".Teste"
-            android:label="@string/title_activity_teste"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Ranking" />
         <activity android:name=".AddNotas" />
         <activity android:name=".VerNotas" />

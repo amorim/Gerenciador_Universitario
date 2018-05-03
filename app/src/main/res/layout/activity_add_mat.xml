@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="projectp4.studio.com.gerenciador_universitario.AddMat"
-    android:background="#848484">
+    android:background="#007db6">
 
     <TextView
         android:layout_width="wrap_content"

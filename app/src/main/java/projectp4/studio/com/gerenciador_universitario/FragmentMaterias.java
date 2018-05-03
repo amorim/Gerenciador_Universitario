@@ -6,15 +6,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentPessoal extends Fragment {
+public class FragmentMaterias extends Fragment {
+
+    private TextView semNotas;
 
 
-    public FragmentPessoal() {
+    public FragmentMaterias() {
         // Required empty public constructor
     }
 
@@ -23,7 +27,13 @@ public class FragmentPessoal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_pessoal, container, false);
+        View view =inflater.inflate(R.layout.fragment_fragment_materias, container, false);
+
+        semNotas = (TextView) view.findViewById(R.id.semNotas);
+
+        //setar texto como "Não há matérias listadas, use o botão "Adicionar Matérias" logo abaixo para começar"
+
+        return view;
     }
 
 }

@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView2" >
 
-    <!-- TODO: Update blank fragment layout -->
+        <!-- TODO: Update blank fragment layout -->
 
     </ScrollView>
 
@@ -20,21 +20,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="left|bottom">
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Ver Boletim"
-            android:id="@+id/verNotas"
-            android:layout_below="@+id/textView8"
-            android:layout_alignRight="@+id/textView8"
-            android:layout_alignEnd="@+id/textView8"
-            android:layout_marginTop="57dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="GERENCIE SUAS NOTAS AQUI"
+            android:text="SUA LISTA DE MATÉRIAS"
             android:id="@+id/textView8"
             android:textStyle="bold"
             android:textSize="25dp"
@@ -42,22 +32,31 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Adicionar Notas"
-            android:id="@+id/AddNotas"
-            android:layout_alignTop="@+id/verNotas"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8" />
-
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ranking de Prioridades"
-            android:id="@+id/ranking"
-            android:layout_marginTop="32dp"
-            android:layout_below="@+id/verNotas"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(Clique na matéria para ver as informações dela)"
+            android:id="@+id/textView26"
+            android:layout_below="@+id/textView8"
+            android:layout_centerHorizontal="true" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="340dp"
+            android:id="@+id/listView2"
+            android:layout_below="@+id/textView26"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Não há matérias listadas, use o botão &quot;Adicionar Matérias&quot; logo abaixo para começar"
+            android:id="@+id/semNotas"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
