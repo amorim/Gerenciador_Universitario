@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +13,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="projectp4.studio.com.gerenciador_universitario.AddMat"
     android:background="#007db6">
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +42,7 @@
     <EditText
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/etNome"
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -51,7 +57,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Carga Horária"
         android:id="@+id/textView6"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/etNome"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -60,7 +67,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/etCargaH"
         android:layout_marginTop="22dp"
         android:background="#ffffff"
         android:layout_below="@+id/textView7"
@@ -83,8 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adicionar"
-        android:id="@+id/button"
+        android:id="@+id/btAdd"
         android:layout_below="@+id/textView6"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package projectp4.studio.com.gerenciador_universitario.Adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentManager;
@@ -15,9 +16,11 @@ import projectp4.studio.com.gerenciador_universitario.FragmentNotas;
  */
 public class TabAdapter extends FragmentStatePagerAdapter {
     private String[] tituloAbas ={"LISTA", "NOTAS", "FALTAS", "CONFIG."};
+    private Bundle bundle;
 
-    public TabAdapter(FragmentManager fm) {
+    public TabAdapter(FragmentManager fm, Bundle bundle) {
         super(fm);
+        this.bundle = bundle;
     }
 
     @Override
@@ -26,6 +29,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
 
         if(position == 0) {
             f = new FragmentMaterias();
+            f.setArguments(bundle);
         }else if(position == 1){
             f = new FragmentNotas();
         }else if(position == 2){
