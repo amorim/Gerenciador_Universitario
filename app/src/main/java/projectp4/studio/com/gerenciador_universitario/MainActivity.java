@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         sltbl.setViewPager( vp );
 
+        banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
+
+        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+
 
         addMat.setOnClickListener(new View.OnClickListener(){
             @Override
