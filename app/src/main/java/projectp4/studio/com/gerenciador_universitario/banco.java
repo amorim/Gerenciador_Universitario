@@ -23,6 +23,8 @@ public class InfosDB {
     private ArrayList<Double> mediaFinal;
     private ArrayList<String> faltasA;
     private ArrayList<String> faltasMax;
+    private ArrayList<String> conceito;
+    private ArrayList<String> nivelDeFaltas;
 
     public InfosDB (Context context){
         this.context = context;
@@ -30,7 +32,7 @@ public class InfosDB {
 
     public ListView recuperarInfo(SQLiteDatabase banco, ListView listaMat){
         try{
-            cursor = banco.rawQuery("SELECT id, nome,faltas,maxFaltas, ab1, ab2, reav, provaFinal, mediaFinal  FROM materias", null);
+            cursor = banco.rawQuery("SELECT id, nome,faltas,maxFaltas, ab1, ab2, reav, provaFinal, mediaFinal, conceito, nivelDeFaltas  FROM materias", null);
 
             int indexNome = cursor.getColumnIndex("nome");
             int indexId = cursor.getColumnIndex("id");
@@ -40,6 +42,8 @@ public class InfosDB {
             int indexab2 = cursor.getColumnIndex("ab2");
             int indexprovaFinal = cursor.getColumnIndex("provaFinal");
             int indexmediaFinal = cursor.getColumnIndex("mediaFinal");
+            int indexConceito = cursor.getColumnIndex("conceito");
+            int indexNivelDeFaltas = cursor.getColumnIndex("nivelDeFaltas");
             cursor.moveToFirst();
             //Adapter
             mat = new ArrayList<String>();
@@ -51,6 +55,8 @@ public class InfosDB {
             reav = new ArrayList<Double>();
             provaFinal = new ArrayList<Double>();
             mediaFinal = new ArrayList<Double>();
+            conceito = new ArrayList<String>();
+            nivelDeFaltas = new ArrayList<String>();
             listaMaterias = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_2, android.R.id.text2, mat);
             listaMat.setAdapter(listaMaterias);
 
@@ -63,6 +69,8 @@ public class InfosDB {
                 ab2.add(cursor.getDouble(indexab2));
                 provaFinal.add(cursor.getDouble(indexprovaFinal));
                 mediaFinal.add(cursor.getDouble(mediaFinal));
+                conceito.add(cursor.getString(indexConceito));
+                nivelDeFaltas.add(cursor.getString(indexNivelDeFaltas));
                 cursor.moveToNext();
             }
         }catch(Exception e){}
@@ -135,6 +143,30 @@ public class InfosDB {
             e.printStackTrace();;
         }
     }
+    public void updateMediaFinal (SQLiteDatabase banco, double f, ListView listaMat, Integer id){
+        try{
+            banco.execSQL("UPDATE materias SET mediaFinal="+ f +" WHERE id=" + id);
+            Toast.makeText(context, "Falta adicionada!", Toast.LENGTH_LONG).show();
+            recuperarInfo(banco, listaMat);
+
+        }catch(Exception e){
+            e.printStackTrace();;
+        }
+    }
+    public ArrayList<Integer> idsOrdenadas (SQLiteDatabase banco, double f, ListView listaMat, Integer id){
+        try{
+            cursor = banco.rawQuery("SELECT id FROM materias ORDER BY mediaFinal", null);
+            int indexId = cursor.getColumnIndex("id");
+            ids = new ArrayList<Integer>();
+            while(cursor != null){
+                ids.add( Integer.parseInt(cursor.getString(indexId)));
+                cursor.moveToNext();
+            }
+            return mat;
+        }catch(Exception e){
+            e.printStackTrace();;
+        }
+    }
     public Context getContext() {
         return context;
     }
@@ -155,9 +187,7 @@ public class InfosDB {
         return provaFinal;
     }
 
-    public ArrayList<Double> getMediaFinal() {
-        return mediaFinal;
-    }
+    public ArrayList<Double> getMediaFinal() { return mediaFinal; }
 
     public Cursor getCursor() {
         return cursor;
@@ -181,5 +211,13 @@ public class InfosDB {
 
     public ArrayList<String> getFaltasMax() {
         return faltasMax;
+    }
+
+    public ArrayList<String> getConceito() {
+        return conceito;
+    }
+
+    public ArrayList<String> getNivelDeFaltas() {
+        return nivelDeFaltas;
     }
 }
