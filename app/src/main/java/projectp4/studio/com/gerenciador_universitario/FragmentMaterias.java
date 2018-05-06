@@ -8,11 +8,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,11 +36,22 @@ public class FragmentMaterias extends Fragment {
     private ArrayList<String> args;
     private ArrayList<Integer> ids;
     private AlertDialog.Builder dialog;
+    private ArrayAdapter<String> listaMaterias;
 
     public FragmentMaterias() {
         // Required empty public constructor
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        Toast.makeText(getContext(), "kk eae men", Toast.LENGTH_LONG).show();
+        args = getArguments().getStringArrayList("materias");
+        listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,19 +60,19 @@ public class FragmentMaterias extends Fragment {
 
         View view =inflater.inflate(R.layout.fragment_fragment_materias, container, false);
 
-
-
         semNotas = (TextView) view.findViewById(R.id.semNotas);
 
         if(getArguments().getStringArrayList("materias") == null){
             semNotas.setText("Não há matérias listadas, use o botão 'Adicionar Matérias' logo abaixo para começar");
         }else{
-            args = getArguments().getStringArrayList("materias");
+            //args = getArguments().getStringArrayList("materias");
             ids = getArguments().getIntegerArrayList("ids");
             lista = (ListView) view.findViewById(R.id.listaMat);
 
-            ArrayAdapter<String> listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
+
+            //listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
             listaMaterias.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            listaMaterias.notifyDataSetChanged();
 
             lista.setAdapter(listaMaterias);
 
@@ -92,6 +105,7 @@ public class FragmentMaterias extends Fragment {
                             //ArrayAdapter<String> listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
                            // listaMaterias.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
                             //lista.setAdapter(listaMaterias);
+                            //fin
                         }
                     });
                     dialog.create();
@@ -99,11 +113,11 @@ public class FragmentMaterias extends Fragment {
                     return true;
                 }
             });
+
         }
 
         return view;
     }
-
 
 
 }
