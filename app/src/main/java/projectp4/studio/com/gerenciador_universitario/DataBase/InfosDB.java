@@ -155,14 +155,20 @@ public class InfosDB extends Activity {
         }
     }
 
-    public void removerMateria(SQLiteDatabase banco, Integer id){
-        //Toast.makeText(getContext(), "j", Toast.LENGTH_LONG).show();
+    public SQLiteDatabase pegarBanco (String nome, Context context){
+        SQLiteDatabase banco = context.openOrCreateDatabase(nome, Context.MODE_PRIVATE, null);
+        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, " +
+                "cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, " +
+                "reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+        return banco;
+    }
+
+    public void removerMateria(SQLiteDatabase banco, Context c, Integer id){
         try{
-            Toast.makeText(getContext(), "KK eae men", Toast.LENGTH_LONG).show();
-            //banco.execSQL("DELETE FROM materias WHERE id=" + id);
-            //Toast.makeText(getContext(), "Materia Excluida", Toast.LENGTH_LONG).show();
+            banco.execSQL("DELETE FROM materias WHERE id=" + id);
+            Toast.makeText(c, "Materia Excluida", Toast.LENGTH_LONG).show();
         }catch(Exception e){
-            Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(c, e.toString(),  Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
