@@ -22,6 +22,9 @@ public class SituGeral extends AppCompatActivity {
     private TextView reavtv;
     private TextView finaltv;
     private TextView nomeMat;
+    private TextView faltasA;
+    private TextView faltasR;
+    private TextView cargaH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class SituGeral extends AppCompatActivity {
         reavtv = (TextView) findViewById(R.id.reav);
         finaltv = (TextView) findViewById(R.id.pfinal);
         nomeMat = (TextView) findViewById(R.id.nomeMat);
+        faltasA = (TextView) findViewById(R.id.tvFaltasA);
+        faltasR = (TextView) findViewById(R.id.tvFaltasR);
+        cargaH = (TextView) findViewById(R.id.tvCh);
 
         Bundle extra = getIntent().getExtras();
         banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
@@ -47,15 +53,27 @@ public class SituGeral extends AppCompatActivity {
 
             nomeMat.setText(nomes.get(idMat-1));
 
-            Double ab1 = idb.getAb1().get(idMat-1);
-            Double ab2 = idb.getAb2().get(idMat-1);
-            Double reav = idb.getReav().get(idMat-1);
-            Double pfinal = idb.getProvaFinal().get(idMat-1);
+            Double ab1 = idb.getAb1().get(idb.getIds().indexOf(idMat));
+            Double ab2 = idb.getAb2().get(idb.getIds().indexOf(idMat));
+            Double reav = idb.getReav().get(idb.getIds().indexOf(idMat));
+            Double pfinal = idb.getProvaFinal().get(idb.getIds().indexOf(idMat));
+
+            String fa = idb.getFaltasA().get(idb.getIds().indexOf(idMat));
+            int maxF = Integer.parseInt(idb.getFaltasMax().get(idb.getIds().indexOf(idMat)));
+            int fr = maxF - Integer.parseInt(fa);
+            if(fr < 0)
+                fr = 0;
+
+            String ch = idb.getCargaH().get(idb.getIds().indexOf(idMat));
+
 
             reavtv.setText("Reav: " + reav );
             ab1tv.setText("AB1: " + ab1);
             ab2tv.setText("AB2: " + ab2);
             finaltv.setText("Final: " + pfinal);
+            faltasA.setText("Faltas Atuais: "+fa);
+            faltasR.setText("Faltas Restantes: " + fr);
+            cargaH.setText("Carga Horária: " + ch +"h");
 
         }
     }

@@ -31,7 +31,6 @@ public class AddMat extends Activity {
                 String m = materia.getText().toString();
                 String c = cargaH.getText().toString();
 
-
                 if(m.equals("") || c.equals("")){
                     Toast.makeText(AddMat.this, "Por favor, preencha todos os campos!", Toast.LENGTH_LONG).show();
                 }else {
@@ -54,8 +53,6 @@ public class AddMat extends Activity {
                 }
             }
         });
-
-
 
     }
 }

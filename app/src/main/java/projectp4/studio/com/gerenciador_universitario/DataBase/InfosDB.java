@@ -1,5 +1,6 @@
 package projectp4.studio.com.gerenciador_universitario.DataBase;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +16,7 @@ import projectp4.studio.com.gerenciador_universitario.R;
 /**
  * Created by Lucas on 05/05/2018.
  */
-public class InfosDB {
+public class InfosDB extends Activity {
 
     private Context context;
     private Cursor cursor;
@@ -29,6 +30,7 @@ public class InfosDB {
     private ArrayList<Double> mediaFinal;
     private ArrayList<String> faltasA;
     private ArrayList<String> faltasMax;
+    private ArrayList<String> cargaH;
 
     public InfosDB (Context context){
         this.context = context;
@@ -80,7 +82,7 @@ public class InfosDB {
 
     public  ArrayList<String> recuperarInfo(SQLiteDatabase banco){
         try{
-            cursor = banco.rawQuery("SELECT id, nome,faltas,maxFaltas, ab1, ab2, reav, provaFinal, mediaFinal  FROM materias", null);
+            cursor = banco.rawQuery("SELECT id, nome,faltas,maxFaltas,cargaHoraria, ab1, ab2, reav, provaFinal, mediaFinal  FROM materias", null);
 
             int indexNome = cursor.getColumnIndex("nome");
             int indexId = cursor.getColumnIndex("id");
@@ -91,6 +93,7 @@ public class InfosDB {
             int indexreav = cursor.getColumnIndex("reav");
             int indexprovaFinal = cursor.getColumnIndex("provaFinal");
             int indexmediaFinal = cursor.getColumnIndex("mediaFinal");
+            int indexCargaH = cursor.getColumnIndex("cargaHoraria");
             cursor.moveToFirst();
             //Adapter
             mat = new ArrayList<String>();
@@ -102,6 +105,7 @@ public class InfosDB {
             reav = new ArrayList<Double>();
             provaFinal = new ArrayList<Double>();
             mediaFinal = new ArrayList<Double>();
+            cargaH = new ArrayList<String>();
 
             listaMaterias = new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item, mat);
             listaMaterias.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -116,6 +120,7 @@ public class InfosDB {
                 reav.add(cursor.getDouble(indexreav));
                 provaFinal.add(cursor.getDouble(indexprovaFinal));
                 mediaFinal.add(cursor.getDouble(indexmediaFinal));
+                cargaH.add(cursor.getString(indexCargaH));
                 cursor.moveToNext();
             }
         }catch(Exception e){}
@@ -146,6 +151,26 @@ public class InfosDB {
 
         }catch(Exception e){
             e.printStackTrace();;
+        }
+    }
+
+    public SQLiteDatabase pegarBanco (String nome){
+        SQLiteDatabase banco = openOrCreateDatabase(nome, MODE_PRIVATE, null);
+        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, " +
+                "cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, " +
+                "reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+        return banco;
+    }
+
+    public void removerMateria(SQLiteDatabase banco, Integer id){
+        //Toast.makeText(getContext(), "j", Toast.LENGTH_LONG).show();
+        try{
+            Toast.makeText(getContext(), "KK eae men", Toast.LENGTH_LONG).show();
+            //banco.execSQL("DELETE FROM materias WHERE id=" + id);
+            //Toast.makeText(getContext(), "Materia Excluida", Toast.LENGTH_LONG).show();
+        }catch(Exception e){
+            Toast.makeText(getContext(), e.toString(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
     }
 
@@ -236,6 +261,10 @@ public class InfosDB {
 
     public ArrayList<String> getFaltasMax() {
         return faltasMax;
+    }
+
+    public ArrayList<String> getCargaH() {
+        return cargaH;
     }
 
 }

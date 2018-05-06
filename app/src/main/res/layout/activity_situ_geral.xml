@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="projectp4.studio.com.gerenciador_universitario.SituGeral">
+    tools:context="projectp4.studio.com.gerenciador_universitario.SituGeral"
+    android:background="#007db6">
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,10 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Materia"
         android:id="@+id/nomeMat"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,4 +69,57 @@
         android:layout_alignTop="@+id/reav"
         android:layout_alignRight="@+id/ab2"
         android:layout_alignEnd="@+id/ab2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Faltas Atuais: 000"
+        android:id="@+id/tvFaltasA"
+        android:layout_below="@+id/ab1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Faltas restantes: 000"
+        android:id="@+id/tvFaltasR"
+        android:layout_below="@+id/tvFaltasA"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Carga Horária: 00h"
+        android:id="@+id/tvCh"
+        android:layout_below="@+id/nomeMat"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="CONCEITO: Matriculado"
+        android:id="@+id/tvConceito"
+        android:layout_below="@+id/tvStatusF"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Status de Faltas: "
+        android:id="@+id/tvStatusF"
+        android:layout_below="@+id/tvFaltasR"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
 </RelativeLayout>
