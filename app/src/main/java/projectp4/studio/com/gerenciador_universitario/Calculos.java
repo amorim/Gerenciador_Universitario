@@ -1,7 +1,9 @@
 package projectp4.studio.com.gerenciador_universitario;
 
+import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Lucas on 06/05/2018.
  */
-public class Calculos {
+public class Calculos extends Activity{
 
     private Context context;
 
@@ -37,7 +39,7 @@ public class Calculos {
     }
 
     public double media (int av, ArrayList<Double> notas){
-
+        //Toast.makeText(Calculos.this, "Dados passados:" + notas.toString(), Toast.LENGTH_LONG).show();
         double mediaA = (notas.get(0) + notas.get(1))/2;
 
         if(av == 0 || av == 1){
@@ -73,26 +75,7 @@ public class Calculos {
         return "";
 
     }
-    
-    
-    public TextView ranking (TextView tv, String[] materias, double[] medias){
-        return tv;
-    }
 
-
-    public Object[] listToArray (ArrayList<Object> al){
-
-        Object[] obj = new Object[al.size()];
-        int i = 0;
-
-        for (Object a: al){
-            obj[i] = al.get(i);
-            i++;
-        }
-
-        return obj;
-
-    }
 
 
 

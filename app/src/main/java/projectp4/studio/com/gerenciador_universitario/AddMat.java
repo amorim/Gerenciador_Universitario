@@ -40,7 +40,8 @@ public class AddMat extends Activity {
 
                     try {
                         banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
-                        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+
+                        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE, conceito TEXT, nivelDeFaltas TEXT)");
 
                         banco.execSQL("INSERT INTO materias (nome, cargaHoraria, maxFaltas, faltas) VALUES (" + toAdd + ",0)");
                         Toast.makeText(AddMat.this, "Matéria Adicionada!", Toast.LENGTH_LONG).show();

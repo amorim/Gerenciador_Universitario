@@ -27,6 +27,7 @@ public class AddNotas extends AppCompatActivity {
     private int posAv;
     private int posMat;
     private Integer id;
+    private Calculos c = new Calculos(AddNotas.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class AddNotas extends AppCompatActivity {
 
         try {
             banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
-            banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+
+            banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE, conceito TEXT, nivelDeFaltas TEXT)");
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, idb.recuperarInfo(banco));
             adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -102,8 +104,19 @@ public class AddNotas extends AppCompatActivity {
                                     break;
                             }
 
-                            Toast.makeText(AddNotas.this, "Notas adicionada!", Toast.LENGTH_LONG).show();
-                            finish();
+                            idb.recuperarInfo(banco);
+
+                            ArrayList<Double> notas = new ArrayList<>();
+
+                            notas.add(idb.getAb1().get(idb.getIds().indexOf(id)));
+                            notas.add(idb.getAb2().get(idb.getIds().indexOf(id)));
+                            notas.add(idb.getReav().get(idb.getIds().indexOf(id)));
+                            notas.add(idb.getProvaFinal().get(idb.getIds().indexOf(id)));
+
+                            banco.execSQL("UPDATE materias SET mediaFinal="+ c.media(posAv, notas) +" WHERE id=" + id);
+
+                            Toast.makeText(AddNotas.this, "Nota adicionada!", Toast.LENGTH_LONG).show();
+                            //finish();
                         }
                     }
 

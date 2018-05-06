@@ -34,27 +34,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ScrollView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/scrollView"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/textView14"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13"
-        android:layout_alignParentBottom="true">
-
-    </ScrollView>
-
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*setar ranking aqui*"
-        android:id="@+id/textView15"
-        android:layout_alignTop="@+id/scrollView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="127dp" />
+        android:layout_height="330dp"
+        android:id="@+id/rk"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

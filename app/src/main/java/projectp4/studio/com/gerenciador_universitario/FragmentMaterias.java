@@ -37,6 +37,7 @@ public class FragmentMaterias extends Fragment {
     private ArrayList<Integer> ids;
     private AlertDialog.Builder dialog;
     private ArrayAdapter<String> listaMaterias;
+    public int delete;
 
     public FragmentMaterias() {
         // Required empty public constructor
@@ -47,7 +48,6 @@ public class FragmentMaterias extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        Toast.makeText(getContext(), "kk eae men", Toast.LENGTH_LONG).show();
         args = getArguments().getStringArrayList("materias");
         listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
 
@@ -101,6 +101,7 @@ public class FragmentMaterias extends Fragment {
                     dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            delete = ids.get(position);
                             //idb.removerMateria(idb.pegarBanco("Gerenciador_universitario"), ids.get(position) );
                             //ArrayAdapter<String> listaMaterias = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, args);
                            // listaMaterias.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);

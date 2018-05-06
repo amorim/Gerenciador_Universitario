@@ -25,6 +25,7 @@ public class SituGeral extends AppCompatActivity {
     private TextView faltasA;
     private TextView faltasR;
     private TextView cargaH;
+    private TextView media;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class SituGeral extends AppCompatActivity {
         faltasA = (TextView) findViewById(R.id.tvFaltasA);
         faltasR = (TextView) findViewById(R.id.tvFaltasR);
         cargaH = (TextView) findViewById(R.id.tvCh);
+        media = (TextView) findViewById(R.id.tvMedia);
 
         Bundle extra = getIntent().getExtras();
         banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
@@ -49,7 +51,6 @@ public class SituGeral extends AppCompatActivity {
         if(extra != null){
             Integer idMat = extra.getInt("ID");
             ArrayList<String> nomes = idb.recuperarInfo(banco);
-            //Toast.makeText(SituGeral.this, "kk eae men!", Toast.LENGTH_LONG).show();
 
             nomeMat.setText(nomes.get(idMat-1));
 
@@ -65,6 +66,7 @@ public class SituGeral extends AppCompatActivity {
                 fr = 0;
 
             String ch = idb.getCargaH().get(idb.getIds().indexOf(idMat));
+            Double m = idb.getMediaFinal().get(idb.getIds().indexOf(idMat));
 
 
             reavtv.setText("Reav: " + reav );
@@ -74,6 +76,7 @@ public class SituGeral extends AppCompatActivity {
             faltasA.setText("Faltas Atuais: "+fa);
             faltasR.setText("Faltas Restantes: " + fr);
             cargaH.setText("Carga Horária: " + ch +"h");
+            media.setText("Média: " + m);
 
         }
     }

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -76,9 +80,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Faltas Atuais: 000"
         android:id="@+id/tvFaltasA"
-        android:layout_below="@+id/ab1"
+        android:layout_below="@+id/Dados"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -122,4 +127,15 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="28dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Média: 00.00"
+        android:id="@+id/tvMedia"
+        android:layout_above="@+id/tvFaltasA"
+        android:layout_toRightOf="@+id/ab1"
+        android:layout_toEndOf="@+id/ab1" />
+
 </RelativeLayout>
+</ScrollView>

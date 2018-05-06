@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import projectp4.studio.com.gerenciador_universitario.R;
@@ -154,14 +155,6 @@ public class InfosDB extends Activity {
         }
     }
 
-    public SQLiteDatabase pegarBanco (String nome){
-        SQLiteDatabase banco = openOrCreateDatabase(nome, MODE_PRIVATE, null);
-        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, " +
-                "cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, " +
-                "reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
-        return banco;
-    }
-
     public void removerMateria(SQLiteDatabase banco, Integer id){
         //Toast.makeText(getContext(), "j", Toast.LENGTH_LONG).show();
         try{
@@ -213,6 +206,38 @@ public class InfosDB extends Activity {
             e.printStackTrace();;
         }
     }
+
+    public String[] Ranking (){
+        String[] mats = new String[getMat().size()];
+        Double[] sorts = new Double[getMediaFinal().size()];
+
+        int i;
+        for (i=0; i< getMediaFinal().size(); i++){
+            sorts[i] = getMediaFinal().get(i);
+            mats[i] = getMat().get(i);
+        }
+
+        int j;
+        for (i=0; i< getMediaFinal().size(); i++){
+            for (j=0; j< getMediaFinal().size(); j++){
+                if(sorts[i] < sorts[j]){
+                    double temp = sorts[i];
+                    sorts[i] = sorts[j];
+                    sorts[j] = temp;
+
+                    String t = mats[i];
+                    mats[i] = mats[j];
+                    mats[j] = t;
+                }
+            }
+        }
+
+        return mats;
+
+    }
+
+
+
     public Context getContext() {
         return context;
     }

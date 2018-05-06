@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GerenciadorUniversitario.iml" filepath="$PROJECT_DIR$/GerenciadorUniversitario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gerenciador_Universitario.iml" filepath="$PROJECT_DIR$/Gerenciador_Universitario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
