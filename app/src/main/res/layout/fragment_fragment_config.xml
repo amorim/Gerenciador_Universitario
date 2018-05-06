@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projectp4.studio.com.gerenciador_universitario.Frags"
+    android:background="#8988d0">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|bottom"
+        android:background="#007db6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="CONFIGURAÇÕES"
+            android:id="@+id/textView8"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginTop="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Notificações"
+            android:id="@+id/textView10"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="27dp"
+            android:layout_below="@+id/textView8"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compartilhar"
+            android:id="@+id/share"
+            android:layout_marginTop="58dp"
+            android:layout_below="@+id/cbLembrete"
+            android:layout_alignLeft="@+id/cbLembrete"
+            android:layout_alignStart="@+id/cbLembrete" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nível de Faltas"
+            android:id="@+id/cbNvlF"
+            android:layout_below="@+id/textView10"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conceito Alterado"
+            android:id="@+id/cbConceito"
+            android:layout_below="@+id/cbNvlF"
+            android:layout_alignLeft="@+id/cbNvlF"
+            android:layout_alignStart="@+id/cbNvlF"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lembrete"
+            android:id="@+id/cbLembrete"
+            android:layout_below="@+id/cbConceito"
+            android:layout_alignLeft="@+id/cbConceito"
+            android:layout_alignStart="@+id/cbConceito"
+            android:checked="false" />
+
+    </RelativeLayout>
+</FrameLayout>
