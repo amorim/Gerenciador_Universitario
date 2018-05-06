@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 
 import projectp4.studio.com.gerenciador_universitario.Adapter.TabAdapter;
+import projectp4.studio.com.gerenciador_universitario.DataBase.InfosDB;
 import projectp4.studio.com.gerenciador_universitario.helper.SlidingTabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,13 +23,20 @@ public class MainActivity extends AppCompatActivity {
     private Button addMat;
     private SlidingTabLayout sltbl;
     private ViewPager vp;
+    private SQLiteDatabase banco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
+        banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
+        InfosDB idb = new InfosDB(MainActivity.this);
 
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("materias", idb.recuperarInfo(banco));
+        bundle.putIntegerArrayList("ids", idb.getIds());
 
         addMat = (Button) findViewById(R.id.addMat);
         sltbl = (SlidingTabLayout) findViewById(R.id.stl_tabs);
@@ -36,43 +44,27 @@ public class MainActivity extends AppCompatActivity {
 
         //configurando sliding tabs
         sltbl.setDistributeEvenly(true);
-        sltbl.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.colorAccent));
-
+        sltbl.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.seletor));
 
         //conf adapter
-        TabAdapter tba = new TabAdapter( getSupportFragmentManager() );
-
+        TabAdapter tba = new TabAdapter( getSupportFragmentManager(), bundle );
         vp.setAdapter( tba );
-
         sltbl.setViewPager( vp );
 
+<<<<<<< HEAD
         banco = openOrCreateDatabase("Gerenciador_universitario", MODE_PRIVATE, null);
 
         banco.execSQL("CREATE TABLE IF NOT EXISTS materias (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, cargaHoraria INT(2), maxFaltas INT(2), faltas INT(2), ab1 DOUBLE, ab2 DOUBLE, reav DOUBLE, provaFinal DOUBLE, mediaFinal DOUBLE)");
 
 
+=======
+>>>>>>> sales/master
         addMat.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
                 startActivity(new Intent(MainActivity.this, AddMat.class));
-
-                /*FragmentManager frag = getFragmentManager();
-                FragmentTransaction ftrans = frag.beginTransaction();
-                Frags f = new Frags();
-
-                ftrans.add(R.id.rl_layout, f);
-
-                ftrans.commit();*/
-
-
             }
         });
-
-
     }
-
-
-
 
 }

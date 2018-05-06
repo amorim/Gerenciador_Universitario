@@ -25,10 +25,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Selecionar matéria"
         android:id="@+id/textView17"
+        android:layout_marginTop="34dp"
         android:layout_below="@+id/textView16"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="51dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,10 +36,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Selecionar tipo de Avaliação"
         android:id="@+id/textView18"
-        android:layout_marginTop="56dp"
-        android:layout_below="@+id/textView17"
+        android:layout_below="@+id/spMaterias"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,18 +47,19 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Digitar Nota"
         android:id="@+id/textView19"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/spAvaliacao"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adicionar"
-        android:id="@+id/button5"
+        android:id="@+id/btadd"
         android:background="#ffffff"
         android:padding="5dp"
-        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignBottom="@+id/nota"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -67,7 +68,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/nota"
         android:layout_marginTop="17dp"
         android:background="#ffffff"
         android:padding="3dp"
@@ -75,5 +76,22 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="25dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spMaterias"
+        android:layout_below="@+id/textView17"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spAvaliacao"
+        android:layout_below="@+id/textView18"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

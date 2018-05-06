@@ -32,6 +32,9 @@ public class SituAtual extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 teste.setText("Vc selecionou " + niveisF[i]);
+
+
+
             }
 
             @Override
